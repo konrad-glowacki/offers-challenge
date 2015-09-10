@@ -1,4 +1,4 @@
-class OfferForm
+class Offer
   include ActiveModel::Model
 
   attr_accessor :uid, :pub0, :page

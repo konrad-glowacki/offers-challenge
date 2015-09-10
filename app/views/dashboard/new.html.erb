@@ -1,6 +1,8 @@
 <h1 class="text-center">Fyber Challenge</h1>
 
-<%= form_for @offer_form, url: dashboard_index_path, html: { class: "m-t-lg form center-block" } do |f| %>
+<%= form_for @offer, url: dashboard_index_path, html: { class: "m-t-lg form center-block" } do |f| %>
+  <%= render partial: 'shared/form_errors', locals: { object: @offer } %>
+
   <fieldset class="form-group">
     <%= f.label :uid, "User unique ID" %>
     <%= f.text_field :uid, class: "form-control" %>

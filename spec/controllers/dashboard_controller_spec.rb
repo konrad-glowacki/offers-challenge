@@ -16,7 +16,7 @@ RSpec.describe DashboardController, type: :controller do
     end
 
     it "renders index template" do
-      post :create, offer_form: params
+      post :create, offer: params
       expect(response).to render_template('index')
     end
   end
