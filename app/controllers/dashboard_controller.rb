@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
 
-  def index; end
+  def index
+    @offer_form = OfferForm.new
+  end
 
 end
