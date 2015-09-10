@@ -8,12 +8,25 @@ RSpec.describe Offer, type: :model do
   end
 
   describe "#all" do
-    before {
-      expect_any_instance_of(HttpClient).to receive(:fetch_offers).and_return([])
-    }
 
-    it "returns offers" do
-      expect(subject.all).to eq([])
+    context "offers no exists" do
+      before {
+        expect_any_instance_of(HttpClient).to receive(:fetch_offers).and_return({ 'count' => 0 })
+      }
+
+      it "returns empty array" do
+        expect(subject.all).to eq([])
+      end
+    end
+
+    context "offers exists" do
+      before {
+        expect_any_instance_of(HttpClient).to receive(:fetch_offers).and_return({ 'count' => 2, 'offers' => [1] })
+      }
+
+      it "returns array with offers" do
+        expect(subject.all.size).to eq(1)
+      end
     end
   end
 end

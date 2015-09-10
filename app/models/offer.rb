@@ -9,6 +9,7 @@ class Offer
 
   def all
     http_client = HttpClient.new(uid: uid, pub0: pub0, page: page)
-    http_client.fetch_offers
+    results = http_client.fetch_offers
+    results['count'].zero? ? [] : results['offers']
   end
 end

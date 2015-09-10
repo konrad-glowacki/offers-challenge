@@ -1,1 +1,26 @@
 <h1>Offers</h1>
+
+<% if @offers.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Payout</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @offers.each do |offer| %>
+        <tr>
+          <td><%= image_tag(offer['thumbnail']['lowres'], class: "media-object") %></td>
+          <td><%= offer['title'] %></td>
+          <td><%= offer['payout'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <p class="text-info">No offers available</p>
+<% end %>
