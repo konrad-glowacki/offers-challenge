@@ -1,6 +1,7 @@
 class HttpClient
 
   HTTP_HOST = "http://api.sponsorpay.com"
+  API_KEY = "b07a12df7d52e6c118e5d47d3f9e60135b109a1f"
 
   def initialize(uid:, pub0:, page:)
     @conn = Faraday.new(url: HTTP_HOST)
