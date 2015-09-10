@@ -15,6 +15,10 @@ RSpec.describe DashboardController, type: :controller do
       { uid: "player1", pub0: "campaign2", page: "1" }
     end
 
+    before {
+      expect_any_instance_of(Offer).to receive(:all).and_return([])
+    }
+
     it "renders index template" do
       post :create, offer: params
       expect(response).to render_template('index')

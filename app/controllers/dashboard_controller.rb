@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
     @offer = Offer.new(params[:offer])
 
     if @offer.valid?
+      @offers = @offer.all
       render :index
     else
       render :new
