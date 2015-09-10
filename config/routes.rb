@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
-
-  resources :dashboard, only: [:index, :create]
+  root 'dashboard#new'
+  resources :dashboard, only: [:new, :create]
 end
