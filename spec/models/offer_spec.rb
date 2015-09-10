@@ -11,7 +11,7 @@ RSpec.describe Offer, type: :model do
 
     context "offers no exists" do
       before {
-        expect_any_instance_of(HttpClient).to receive(:fetch_offers).and_return({ 'count' => 0 })
+        expect_any_instance_of(HttpClient).to receive(:fetch_offers).and_return({ 'code' => 'NO CONTENT' })
       }
 
       it "returns empty array" do
@@ -21,7 +21,7 @@ RSpec.describe Offer, type: :model do
 
     context "offers exists" do
       before {
-        expect_any_instance_of(HttpClient).to receive(:fetch_offers).and_return({ 'count' => 2, 'offers' => [1] })
+        expect_any_instance_of(HttpClient).to receive(:fetch_offers).and_return({ 'code' => 'OK', 'offers' => [1] })
       }
 
       it "returns array with offers" do
